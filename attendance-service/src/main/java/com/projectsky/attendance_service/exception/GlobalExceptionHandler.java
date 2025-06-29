@@ -1,4 +1,4 @@
-package com.projectsky.event_service.exception;
+package com.projectsky.attendance_service.exception;
 
 import com.projectsky.common.dto.ErrorResponse;
 import com.projectsky.common.dto.util.ErrorResponseUtil;
@@ -15,16 +15,10 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-        String message = ex.getBindingResult().getAllErrors()
-                .stream()
+        String message = ex.getBindingResult().getAllErrors().stream()
                 .map(error -> error.getDefaultMessage())
                 .collect(Collectors.joining("; "));
         return ErrorResponseUtil.buildResponse(HttpStatus.BAD_REQUEST, "Validation failed", message);
-    }
-
-    @ExceptionHandler(EventNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleNotFoundException(EventNotFoundException ex) {
-        return ErrorResponseUtil.buildResponse(HttpStatus.NOT_FOUND, "Event not found", ex.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
