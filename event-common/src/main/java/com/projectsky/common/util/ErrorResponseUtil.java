@@ -1,4 +1,4 @@
-package com.projectsky.common.dto.util;
+package com.projectsky.common.util;
 
 import com.projectsky.common.dto.ErrorResponse;
 import lombok.experimental.UtilityClass;

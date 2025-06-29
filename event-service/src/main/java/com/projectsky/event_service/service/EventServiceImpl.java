@@ -1,8 +1,8 @@
 package com.projectsky.event_service.service;
 
 import com.projectsky.event_service.dto.EventCreateDto;
-import com.projectsky.event_service.dto.EventDto;
-import com.projectsky.event_service.exception.EventNotFoundException;
+import com.projectsky.common.dto.EventDto;
+import com.projectsky.common.exception.EventNotFoundException;
 import com.projectsky.event_service.model.Event;
 import com.projectsky.event_service.repository.EventRepository;
 import lombok.RequiredArgsConstructor;

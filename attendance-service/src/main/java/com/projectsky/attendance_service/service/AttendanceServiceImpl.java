@@ -1,9 +1,14 @@
 package com.projectsky.attendance_service.service;
 
+import com.projectsky.attendance_service.client.EventClient;
 import com.projectsky.attendance_service.dto.AttendanceCreateDto;
 import com.projectsky.attendance_service.dto.AttendanceDto;
 import com.projectsky.attendance_service.model.Attendance;
 import com.projectsky.attendance_service.repository.AttendanceRepository;
+import com.projectsky.common.dto.EventDto;
+import com.projectsky.common.exception.EventNotFoundException;
+import com.projectsky.common.exception.ExternalServerException;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +19,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AttendanceServiceImpl implements AttendanceService {
 
+    private final EventClient eventClient;
     private final AttendanceRepository repository;
-
 
     @Override
     public Long registerAttendance(AttendanceCreateDto dto) {
-        return repository.save(toEntity(dto)).getId();
+        try{
+            eventClient.getEventById(dto.eventId());
+            return repository.save(toEntity(dto)).getId();
+        } catch (FeignException.NotFound ex){
+            throw new EventNotFoundException("Event not found");
+        } catch (FeignException ex){
+            throw new ExternalServerException("Failed to fetch event from event-service. Status: " + ex.status());
+        }
     }
 
     @Override

@@ -1,7 +1,8 @@
 package com.projectsky.event_service.exception;
 
 import com.projectsky.common.dto.ErrorResponse;
-import com.projectsky.common.dto.util.ErrorResponseUtil;
+import com.projectsky.common.exception.EventNotFoundException;
+import com.projectsky.common.util.ErrorResponseUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

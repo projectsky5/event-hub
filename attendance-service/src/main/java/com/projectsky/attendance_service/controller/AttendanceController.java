@@ -3,6 +3,7 @@ package com.projectsky.attendance_service.controller;
 import com.projectsky.attendance_service.dto.AttendanceCreateDto;
 import com.projectsky.attendance_service.dto.AttendanceDto;
 import com.projectsky.attendance_service.service.AttendanceService;
+import com.projectsky.common.dto.EventDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

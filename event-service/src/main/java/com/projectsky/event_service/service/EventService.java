@@ -1,7 +1,7 @@
 package com.projectsky.event_service.service;
 
 import com.projectsky.event_service.dto.EventCreateDto;
-import com.projectsky.event_service.dto.EventDto;
+import com.projectsky.common.dto.EventDto;
 
 import java.util.List;
 

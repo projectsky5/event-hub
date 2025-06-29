@@ -1,4 +1,4 @@
-package com.projectsky.event_service.dto;
+package com.projectsky.common.dto;
 
 import lombok.Builder;
 

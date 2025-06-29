@@ -1,7 +1,7 @@
 package com.projectsky.event_service.controller;
 
 import com.projectsky.event_service.dto.EventCreateDto;
-import com.projectsky.event_service.dto.EventDto;
+import com.projectsky.common.dto.EventDto;
 import com.projectsky.event_service.service.EventService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +30,7 @@ public class EventController {
     public ResponseEntity<EventDto> getEventById(
             @PathVariable Long eventId)
     {
+        System.out.println("Вызов с фейна");
         return ResponseEntity.ok(eventService.getEventById(eventId));
     }
 
