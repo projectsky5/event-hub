@@ -1,11 +1,11 @@
 spring:
   application:
-    name: event-service
+    name: attendance-service
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:attendance-db
     username: sa
     password:
+    driver-class-name: org.h2.Driver
   h2:
     console:
       enabled: true
@@ -16,10 +16,10 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
 
 server:
-  port: 8080
+  port: 8081
+
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
