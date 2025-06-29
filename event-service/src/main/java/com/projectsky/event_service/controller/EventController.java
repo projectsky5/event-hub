@@ -30,7 +30,6 @@ public class EventController {
     public ResponseEntity<EventDto> getEventById(
             @PathVariable Long eventId)
     {
-        System.out.println("Вызов с фейна");
         return ResponseEntity.ok(eventService.getEventById(eventId));
     }
 

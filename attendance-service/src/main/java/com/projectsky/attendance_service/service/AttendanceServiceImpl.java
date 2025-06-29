@@ -30,6 +30,7 @@ public class AttendanceServiceImpl implements AttendanceService {
         } catch (FeignException.NotFound ex){
             throw new EventNotFoundException("Event not found");
         } catch (FeignException ex){
+            System.out.println(ex.getMessage());
             throw new ExternalServerException("Failed to fetch event from event-service. Status: " + ex.status());
         }
     }
